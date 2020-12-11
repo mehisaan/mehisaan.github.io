@@ -14,9 +14,61 @@
 <h1>Vestlus lapsega</h1>
 <h2>Mehis Aan</h2>
 <h3>202846IADB</h3>
-<p>Tantsutrenni riietusruumis: kõik lapsed tahavad midagi- kes, pirukat, kes poodi, kes mahla.
-    Minu laps vaatab seda kõike nõutu näoga pealt ja küsib- miks kõik midagi tahavad?
-    Selline suhteliselt igav vetlus oligi.</p>
+<p>Files and users management
+1.	Create a user firstuser
+sudo adduser firstuser
+2.	Create a group testgroup
+sudo groupadd testgroup
+3.	add firstuser to testgroup
+sudo usermod -a -G testgroup firstuser
+
+4.	check which groups firstuser belongs to
+id firstuser
+5.	create a new user seconduser
+sudo useradd seconduser
+6.	create a subdirectory scripts in firstuser home directory
+cd .. 			to get to home directory
+cd firstuser 		to acess firtuser home directory
+mkdir scripts		to make directory called „scripts“
+
+7.	create a directory “script” in /tmp
+cd .. 2x			to get to beginning
+mkdir tmp			to acess firtuser home directory
+mkdir scripts		to make directory called „scripts“
+
+
+8.	inside “script” directory create a new file and name it fig.sh
+cd tmp			to get to tmp folder
+cd scripts			to get to scripts folder
+touch	fig.sh		to create a new file named fig.sh
+
+9. edit fig.sh content. The first line of text should be “#!/bin/bash” that identifies the file as a script. This file must check using apt if there are updated packages (do not update, it
+takes a lot of time) and display a figlet message “sources updated”
+nano	fig.sh	to edit file
+#!/bin/bash
+apt-get -u upgrade --assume-no 
+
+sudo apt install figlet
+
+figlet sources updated
+
+10. change the script directory permissions so that its owner has all permissions and
+everyone else can write and execute, but not read
+chmod 755 filename
+11. log out of the system and log is as seconduser (in wsl type wsl -u seconduser in
+Powershell)
+12. check the content of /tpm/script directory
+
+
+
+13. run the script fig.sh
+chmod +x (/path/to/)yourscript.sh giver premission to execute
+/path/to/yourscript.sh sun script from other location
+./yourscript.sh run script from current folder
+
+14. remove file
+Rm filename or filename*
+</p>
 
 <a href="https://www.taltech.ee/">TALTECH</a><br>
 <br>
